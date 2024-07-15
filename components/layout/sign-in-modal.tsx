@@ -11,9 +11,9 @@ import {
 } from "react";
 import { LoadingDots, Google } from "@/components/shared/icons";
 import Image from "next/image";
-import { Input } from '@/component/ui/input';
-import { useToast } from '@/component/ui/use-toast';
-import { ToastAction } from '@/component/ui/toast';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/components/ui/use-toast';
+import { ToastAction } from '@/components/ui/toast';
 
 const SignInModal = ({
   showSignInModal,

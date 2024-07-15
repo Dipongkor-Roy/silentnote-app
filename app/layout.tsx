@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import Provider from "@/components/provider/provider";
-import { Toaster } from "@/component/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Precedent - Building blocks for your Next.js project",
