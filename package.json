@@ -8,6 +8,7 @@
     "format:write": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",
     "format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\"",
     "start": "next start",
+    "email": "email dev",
     "lint": "next lint"
   },
   "dependencies": {

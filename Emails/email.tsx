@@ -11,11 +11,13 @@ import {
     Section,
     Text,
   } from "@react-email/components";
+
   import * as React from "react";
-  import logo from "public/logo.png"
   
   interface RaycastMagicLinkEmailProps {
     magicLink?: string;
+  
+    
   }
   
   const baseUrl = process.env.NEXTAUTH_URL
@@ -23,7 +25,7 @@ import {
     : "";
   
   export const RaycastMagicLinkEmail = ({
-    magicLink,
+    magicLink
   }: RaycastMagicLinkEmailProps) => (
     <Html>
       <Head />
@@ -31,10 +33,10 @@ import {
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={`${baseUrl}/static/logo.png`}
+            src='/public/logo.png'
             width={48}
             height={48}
-            alt="SilentNote"
+            alt="Silent Note"
           />
           <Heading style={heading}>🪄 Your magic link</Heading>
           <Section style={body}>
@@ -44,16 +46,16 @@ import {
               </Link>
             </Text>
             <Text style={paragraph}>
-              If you did not request this, please ignore this email.
+              If you didnot request this, please ignore this email.
             </Text>
           </Section>
           <Text style={paragraph}>
             Best,
-            <br />- Raycast Team
+            <br />- Silent Note Team
           </Text>
           <Hr style={hr} />
           <Img
-            src={`${baseUrl}/static/raycast-logo.png`}
+           src='/public/next.svg'
             width={32}
             height={32}
             style={{
@@ -62,9 +64,9 @@ import {
               margin: "20px 0",
             }}
           />
-          <Text style={footer}>Raycast Technologies Inc.</Text>
+          <Text style={footer}>Silent Note</Text>
           <Text style={footer}>
-            2093 Philadelphia Pike #3222, Claymont, DE 19703
+            2024
           </Text>
         </Container>
       </Body>
@@ -72,7 +74,7 @@ import {
   );
   
   RaycastMagicLinkEmail.PreviewProps = {
-    magicLink: "https://raycast.com",
+    magicLink: process.env.NEXTAUTH_URL,
   } as RaycastMagicLinkEmailProps;
   
   export default RaycastMagicLinkEmail;

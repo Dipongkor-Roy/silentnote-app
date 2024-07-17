@@ -94,7 +94,6 @@ const SignInModal = ({
             )}
        </button>
        </div>
-        {session?.user?.email}
         </div>
       </form>
         {/* sign in magic link end */}

@@ -58,6 +58,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             width={40}
             height={40}
           />
+         
         </button>
       </Popover>
     </div>
