@@ -4,7 +4,6 @@ import { sfPro, inter } from "./fonts";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
-import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import Provider from "@/components/provider/provider";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -23,21 +22,22 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
-      <Provider>
-        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-rose-100 scroll-smooth" />
-        <Suspense fallback="...">
-          <Nav />
-        </Suspense>
-      
-        <main className="flex min-h-screen w-full flex-col items-center justify-center py-32">
+        <Provider>
+          {/* Background gradient */}
+          <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-indigo-50 via-white to-rose-100" />
+          
+          {/* Main content */}
+          <Suspense fallback="...">
+            <Nav />
+          </Suspense>
+          
+          <main className="flex min-h-screen w-full flex-col items-center justify-center py-32 relative z-10">
+            {children}
+          </main>
+          
+          <Toaster />
+          <Footer />
         
-          {children}
-        
-        </main>
-        <Toaster />
-     
-        <Footer />
-        <VercelAnalytics />
         </Provider>
       </body>
     </html>
