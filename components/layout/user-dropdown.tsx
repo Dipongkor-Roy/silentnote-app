@@ -54,7 +54,7 @@ export default function UserDropdown({ session }: { session: Session }) {
         >
           <Image
             alt={email}
-            src={image || `https://avatars.dicebear.com/api/micah/${email}.svg`}
+            src={image || `https://blog.olivierlarose.com/_next/image?url=%2Fmedias%2Fimages%2Fmesh_dojo_gradient.png&w=1200&q=75`}
             width={40}
             height={40}
           />
