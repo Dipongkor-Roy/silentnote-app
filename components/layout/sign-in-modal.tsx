@@ -1,3 +1,4 @@
+
 import Modal from '@/components/shared/modal';
 import { signIn, useSession } from "next-auth/react";
 import logo from 'public/logo.png'

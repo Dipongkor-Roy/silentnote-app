@@ -8,9 +8,9 @@ import Provider from "@/components/provider/provider";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "SilentNote - Connect Anonymously, Share Freely",
   description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+    "Create your profile, share your unique link, and receive anonymous messages without the need for anyone to log in.",
   metadataBase: new URL("http://localhost:3000/"),
 };
 

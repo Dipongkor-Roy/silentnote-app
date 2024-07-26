@@ -6,11 +6,12 @@ import { LayoutDashboard, LogOut } from "lucide-react";
 import Popover from "@/components/shared/popover";
 import Image from "next/image";
 import { Session } from "next-auth";
+import Link from "next/link";
 
 export default function UserDropdown({ session }: { session: Session }) {
   const { email, image } = session?.user || {};
   const [openPopover, setOpenPopover] = useState(false);
-   console.log(session?.user)
+  console.log(session?.user);
   if (!email) return null;
 
   return (
@@ -28,13 +29,13 @@ export default function UserDropdown({ session }: { session: Session }) {
                 {session?.user?.email}
               </p>
             </div>
-            <button
-              className="relative flex w-full cursor-not-allowed items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
-              disabled
-            >
-              <LayoutDashboard className="h-4 w-4" />
-              <p className="text-sm">Dashboard</p>
-            </button>
+            <Link href="/dashboard">
+              {" "}
+              <button className="relative flex w-full  items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100">
+                <LayoutDashboard className="h-4 w-4" />
+                <p className="text-sm">Dashboard</p>
+              </button>
+            </Link>
             <button
               className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
               onClick={() => signOut()}
@@ -54,11 +55,13 @@ export default function UserDropdown({ session }: { session: Session }) {
         >
           <Image
             alt={email}
-            src={image || `https://blog.olivierlarose.com/_next/image?url=%2Fmedias%2Fimages%2Fmesh_dojo_gradient.png&w=1200&q=75`}
+            src={
+              image ||
+              `https://blog.olivierlarose.com/_next/image?url=%2Fmedias%2Fimages%2Fmesh_dojo_gradient.png&w=1200&q=75`
+            }
             width={40}
             height={40}
           />
-         
         </button>
       </Popover>
     </div>

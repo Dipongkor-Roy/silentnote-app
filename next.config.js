@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["lh3.googleusercontent.com","https://api.dicebear.com","vercel.com","https://blog.olivierlarose.com"],
+    domains: ["lh3.googleusercontent.com","https://api.dicebear.com","vercel.com","https://blog.olivierlarose.com","https://res.cloudinary.com"],
   },
   async redirects() {
     return [
