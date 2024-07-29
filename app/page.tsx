@@ -1,5 +1,7 @@
 "use client";
 
+import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
+import Footer from "@/components/custom/Footer/Footer";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { Github, Twitter } from "@/components/shared/icons";
@@ -56,11 +58,13 @@ export default function Home({ session }: { session: Session | null }) {
                 strokeLinejoin="round"
               />
             </svg>
-           {session?(<button className=" disabled:">
-              Get Started
-            </button> ):(<button onClick={() => setShowSignInModal(true)}>
-              Get Started
-            </button>)}
+            {session ? (
+              <button className=" disabled:">Get Started</button>
+            ) : (
+              <button onClick={() => setShowSignInModal(true)}>
+                Get Started
+              </button>
+            )}
           </div>
           <a
             className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800"
@@ -77,8 +81,10 @@ export default function Home({ session }: { session: Session | null }) {
         </div>
       </div>
       <div className="animate-fade-up my-10  w-full ">
-        
-        <StaticLogoCloud/>
+        <StaticLogoCloud />
+      </div>
+      <div className="animate-fade-up w-full  pt-5">
+        <ImageFade />
       </div>
     </>
   );

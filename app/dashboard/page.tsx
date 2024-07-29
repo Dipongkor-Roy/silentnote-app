@@ -2,7 +2,6 @@
 
 import MessageCard from "../../components/custom/MessageCard";
 import { Input } from "@/components/ui/input";
-
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
@@ -17,7 +16,7 @@ import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-const page = () => {
+const Page = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false);
@@ -196,4 +195,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -2,7 +2,7 @@ import "./globals.css";
 import cx from "classnames";
 import { sfPro, inter } from "./fonts";
 import Nav from "@/components/layout/nav";
-import Footer from "@/components/layout/footer";
+import Footer from "@/components/custom/Footer/Footer";
 import { Suspense } from "react";
 import Provider from "@/components/provider/provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -25,19 +25,18 @@ export default async function RootLayout({
         <Provider>
           {/* Background gradient */}
           <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-indigo-50 via-white to-rose-100" />
-          
+
           {/* Main content */}
           <Suspense fallback="...">
             <Nav />
           </Suspense>
-          
-          <main className="flex min-h-screen w-full flex-col items-center justify-center py-32 relative z-10">
+
+          <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center py-32">
             {children}
           </main>
-          
+
           <Toaster />
           <Footer />
-        
         </Provider>
       </body>
     </html>
