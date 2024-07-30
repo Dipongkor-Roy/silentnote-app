@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import { BorderBeam } from '../border-beam';
 
 const ImageFade: FC = () => {
   return (
+    <>
+       
     <div className='mx-7  rounded-md border-3 border-primary/10 bg-blue-100'>
-      <div className="relative flex max-w-6xl justify-center overflow-hidden">
+ 
+      <div className="p-2 relative flex max-w-6xl justify-center overflow-hidden rounded-md">
+      <BorderBeam />
         <Image
           src="https://dashboardsdesign.com/img/dashboards/dashboard-05-custom.png"
           alt="hero-section"
@@ -17,6 +22,7 @@ const ImageFade: FC = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 

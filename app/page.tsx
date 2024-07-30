@@ -1,11 +1,10 @@
 "use client";
 
 import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
-import Footer from "@/components/custom/Footer/Footer";
+import { BorderBeam } from "@/components/custom/border-beam";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
-import { Github, Twitter } from "@/components/shared/icons";
-import { nFormatter } from "@/lib/utils";
+import {  Twitter } from "@/components/shared/icons";
 import { Session } from "next-auth";
 
 export default function Home({ session }: { session: Session | null }) {
@@ -66,24 +65,14 @@ export default function Home({ session }: { session: Session | null }) {
               </button>
             )}
           </div>
-          <a
-            className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800"
-            href="https://github.com/steven-tey/precedent"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github />
-            <p>
-              <span className="hidden sm:inline-block">Star on</span> GitHub{" "}
-              <span className="font-semibold">{nFormatter(0)}</span>
-            </p>
-          </a>
+         
         </div>
       </div>
       <div className="animate-fade-up my-10  w-full ">
         <StaticLogoCloud />
       </div>
       <div className="animate-fade-up w-full  pt-5">
+   
         <ImageFade />
       </div>
     </>
