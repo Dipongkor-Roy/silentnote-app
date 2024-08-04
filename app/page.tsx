@@ -1,11 +1,11 @@
 "use client";
 
 import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
-import { BorderBeam } from "@/components/custom/border-beam";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
-import {  Twitter } from "@/components/shared/icons";
+import { Twitter } from "@/components/shared/icons";
 import { Session } from "next-auth";
+import Features from "@/components/custom/Features/Features";
 
 export default function Home({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -29,7 +29,11 @@ export default function Home({ session }: { session: Session | null }) {
           className="animate-fade-up font-display bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-transparent  drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
-          Connect Anonymously, Share Freely
+          Connect{" "}
+          <span className="relative whitespace-nowrap">
+            <span className="absolute -bottom-1 -left-1 -right-2 -top-1 -rotate-1 bg-[#70e1f5] md:-bottom-0 md:-left-3 md:-right-3 md:-top-0"></span>
+            <span className="relative text-white">Anonymously</span>
+          </span> Share Freely
         </h1>
         <p
           className="animate-fade-up mt-6 text-center text-gray-500  [text-wrap:balance] md:text-xl"
@@ -65,15 +69,16 @@ export default function Home({ session }: { session: Session | null }) {
               </button>
             )}
           </div>
-         
         </div>
       </div>
       <div className="animate-fade-up my-10  w-full ">
         <StaticLogoCloud />
       </div>
-      <div className="animate-fade-up w-full  pt-5">
-   
+      <div className="animate-fade-up  py-5">
         <ImageFade />
+      </div>
+      <div className="animate-fade-up flex items-center justify-center  px-7 pt-14">
+        <Features />
       </div>
     </>
   );

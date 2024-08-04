@@ -6,9 +6,9 @@ const ImageFade: FC = () => {
   return (
     <>
        
-    <div className='mx-7  rounded-md border-3 border-primary/10 bg-blue-100'>
+    <div className='mx-5  rounded-md  '>
  
-      <div className="p-2 relative flex max-w-6xl justify-center overflow-hidden rounded-md">
+      <div className="p-1 relative flex max-w-6xl justify-center overflow-hidden rounded-md">
       <BorderBeam />
         <Image
           src="https://dashboardsdesign.com/img/dashboards/dashboard-05-custom.png"

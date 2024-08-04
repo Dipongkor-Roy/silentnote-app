@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'custom-radial': 'radial-gradient(125% 125% at 50% 10%, #fff 40%,#70e1f5 100%)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

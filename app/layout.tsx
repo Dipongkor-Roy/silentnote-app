@@ -24,7 +24,8 @@ export default async function RootLayout({
       <body className={cx(sfPro.variable, inter.variable)}>
         <Provider>
           {/* Background gradient */}
-          <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-indigo-50 via-white to-rose-100" />
+         
+          <div className="fixed inset-0 z-[-1] bg-custom-radial" />
 
           {/* Main content */}
           <Suspense fallback="...">
