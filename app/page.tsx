@@ -6,6 +6,7 @@ import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { Twitter } from "@/components/shared/icons";
 import { Session } from "next-auth";
 import Features from "@/components/custom/Features/Features";
+import { MarqueeDemo } from "@/components/custom/Review/Review";
 
 export default function Home({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -79,6 +80,10 @@ export default function Home({ session }: { session: Session | null }) {
       </div>
       <div className="animate-fade-up flex items-center justify-center  px-7 pt-14">
         <Features />
+      </div>
+      <h2 className="animate-fade-up  text-sm text-center font-medium pt-10 mt-10 sm:mt-5">Story From Users</h2>
+      <div className="animate-fade-up ">
+      <MarqueeDemo/>
       </div>
     </>
   );

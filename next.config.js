@@ -8,6 +8,7 @@ const nextConfig = {
       "dashboardsdesign.com",
       "api.dicebear.com",
       "vercel.com",
+      "avatar.vercel.sh",
       "ansubkhan.com",
       "blog.olivierlarose.com",
       "res.cloudinary.com",
