@@ -136,7 +136,7 @@ const Page = () => {
 
   return (
     <div className="mx-4 my-8 w-full max-w-6xl rounded bg-transparent  p-6 md:mx-8 lg:mx-auto">
-      <h1 className="mb-4 text-4xl font-bold">User Dashboard</h1>
+      <h1 className="mb-4 text-4xl font-bold">{name?.split(' ')[0]}&apos;s Dashboard</h1>
 
       <div className="mb-4">
         <h2 className="mb-2 text-lg font-semibold">Copy Your Unique Link</h2>

@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function UserDropdown({ session }: { session: Session }) {
   const { email, image } = session?.user || {};
   const [openPopover, setOpenPopover] = useState(false);
-  console.log(session?.user);
+  // console.log(session?.user);
   if (!email) return null;
 
   return (

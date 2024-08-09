@@ -22,6 +22,7 @@ import { ApiResponse } from '../../../Types/ApiResponse';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { messageSchema } from '../../../Schemas/messageSchema';
+import ShinyButton from "@/components/magicui/shiny-button";
 
 export default function SendMessage() {
   const params = useParams<{ username: string }>();
@@ -62,7 +63,7 @@ export default function SendMessage() {
   return (
     <div className="container mx-auto my-8 p-6 bg-transparent  rounded max-w-4xl">
       <h1 className="text-4xl font-bold mb-6 text-center">
-        Public Profile Link
+      Send Message&apos;s 
       </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -100,10 +101,11 @@ export default function SendMessage() {
 
       <Separator className="my-6" />
       <div className="text-center">
-        <div className="mb-4">Get Your Message Board</div>
-        <Link href={'/sign-up'}>
-          <Button>Create Your Account</Button>
+        <div className="mb-4">Want Your Messages?</div>
+        <Link href={'/'}>
+        <ShinyButton text="Go To Home" className="" />
         </Link>
+        
       </div>
     </div>
   );
