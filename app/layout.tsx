@@ -32,7 +32,7 @@ export default async function RootLayout({
             <Nav />
           </Suspense>
 
-          <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center py-32">
+          <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center py-32 overflow-hidden">
             {children}
           </main>
 

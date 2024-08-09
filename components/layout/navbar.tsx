@@ -3,14 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
+import { Bricolage_Grotesque } from 'next/font/google'
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
-
+const recursive =  Bricolage_Grotesque ({
+  weight: '400',
+  subsets: ['latin'],
+})
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
-
+  
   return (
     <>
       <SignInModal />
@@ -28,9 +32,9 @@ export default function NavBar({ session }: { session: Session | null }) {
               alt="SilentNote logo"
               width="32"
               height="32"
-              className="mr-2 rounded-sm"
+              className="mr-2 rounded-sm "
             ></Image>
-            <p>SilentNote</p>
+            <p className={recursive.className}>Silentnote</p>
           </Link>
           <div>
             {session ? (

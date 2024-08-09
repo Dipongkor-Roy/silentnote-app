@@ -81,8 +81,8 @@ export default function Home({ session }: { session: Session | null }) {
       <div className="animate-fade-up flex items-center justify-center  px-7 pt-14">
         <Features />
       </div>
-      <h2 className="animate-fade-up  text-sm text-center font-medium pt-10 mt-10 sm:mt-5">Story From Users</h2>
-      <div className="animate-fade-up ">
+      <h2 className="animate-fade-up text-sm text-center font-medium pt-10 mt-10 pb-0 mb-0 sm:mt-5">Story From Users</h2>
+      <div className="animate-fade-up">
       <MarqueeDemo/>
       </div>
     </>
