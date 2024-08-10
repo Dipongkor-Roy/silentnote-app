@@ -13,7 +13,8 @@ interface HomeProps {
   session: Session | null;
 }
 
-export default function Home({ session }:HomeProps) {
+
+export default function Home({ session } : HomeProps) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
   return (
