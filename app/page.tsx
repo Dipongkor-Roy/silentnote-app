@@ -8,7 +8,12 @@ import { Session } from "next-auth";
 import Features from "@/components/custom/Features/Features";
 import { MarqueeDemo } from "@/components/custom/Review/Review";
 
-export default function Home({ session }: { session: Session | null }) {
+
+interface HomeProps {
+  session: Session | null;
+}
+
+export default function Home({ session }:HomeProps) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
   return (
