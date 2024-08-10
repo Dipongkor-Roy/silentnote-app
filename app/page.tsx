@@ -4,23 +4,21 @@ import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { Twitter } from "@/components/shared/icons";
-import { Session } from "next-auth";
+import { Session } from "next-auth"; // Ensure this import is correct
 import Features from "@/components/custom/Features/Features";
 import { MarqueeDemo } from "@/components/custom/Review/Review";
-
 
 interface HomeProps {
   session: Session | null;
 }
 
-
-export default function Home({ session } : HomeProps) {
+export default function Home({ session }: HomeProps) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
   return (
     <>
       <SignInModal />
-      <div className="z-10 w-full max-w-xl px-5 xl:px-0 ">
+      <div className="z-10 w-full max-w-xl px-5 xl:px-0">
         <a
           href="https://x.com/Juniordipu"
           target="_blank"
@@ -33,17 +31,18 @@ export default function Home({ session } : HomeProps) {
           </p>
         </a>
         <h1
-          className="animate-fade-up font-display bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-transparent  drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]"
+          className="animate-fade-up font-display bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
           Connect{" "}
           <span className="relative whitespace-nowrap">
             <span className="absolute -bottom-1 -left-1 -right-2 -top-1 -rotate-1 bg-[#70e1f5] md:-bottom-0 md:-left-3 md:-right-3 md:-top-0"></span>
             <span className="relative text-white">Anonymously</span>
-          </span> Share Freely
+          </span>{" "}
+          Share Freely
         </h1>
         <p
-          className="animate-fade-up mt-6 text-center text-gray-500  [text-wrap:balance] md:text-xl"
+          className="animate-fade-up mt-6 text-center text-gray-500 [text-wrap:balance] md:text-xl"
           style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
         >
           Create your profile, share your unique link, and receive anonymous
@@ -69,27 +68,27 @@ export default function Home({ session } : HomeProps) {
               />
             </svg>
             {session ? (
-              <button className=" disabled:">Get Started</button>
+              <button className="disabled:">Get Started</button>
             ) : (
-              <button onClick={() => setShowSignInModal(true)}>
-                Get Started
-              </button>
+              <button onClick={() => setShowSignInModal(true)}>Get Started</button>
             )}
           </div>
         </div>
       </div>
-      <div className="animate-fade-up my-10  w-full ">
+      <div className="animate-fade-up my-10 w-full">
         <StaticLogoCloud />
       </div>
-      <div className="animate-fade-up  py-5">
+      <div className="animate-fade-up py-5">
         <ImageFade />
       </div>
-      <div className="animate-fade-up flex items-center justify-center  px-7 pt-14">
+      <div className="animate-fade-up flex items-center justify-center px-7 pt-14">
         <Features />
       </div>
-      <h2 className="animate-fade-up text-sm text-center font-medium pt-10 mt-10 pb-0 mb-0 sm:mt-5">Story From Users</h2>
+      <h2 className="animate-fade-up text-sm text-center font-medium pt-10 mt-10 pb-0 mb-0 sm:mt-5">
+        Story From Users
+      </h2>
       <div className="animate-fade-up">
-      <MarqueeDemo/>
+        <MarqueeDemo />
       </div>
     </>
   );
