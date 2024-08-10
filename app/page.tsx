@@ -4,15 +4,13 @@ import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { Twitter } from "@/components/shared/icons";
-import { Session } from "next-auth"; // Ensure this import is correct
 import Features from "@/components/custom/Features/Features";
 import { MarqueeDemo } from "@/components/custom/Review/Review";
+import {  useSession } from "next-auth/react";
 
-interface HomeProps {
-  session: Session | null;
-}
 
-export default function Home({ session }: HomeProps) {
+export default  function Home() {
+  const  { data: session }  =useSession();
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
   return (
@@ -67,7 +65,7 @@ export default function Home({ session }: HomeProps) {
                 strokeLinejoin="round"
               />
             </svg>
-            {session ? (
+            {session? (
               <button className="disabled:">Get Started</button>
             ) : (
               <button onClick={() => setShowSignInModal(true)}>Get Started</button>

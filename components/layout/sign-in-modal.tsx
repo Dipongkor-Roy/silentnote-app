@@ -24,10 +24,16 @@ const SignInModal = ({
 }) => {
   const [signInClicked, setSignInClicked] = useState(false);
   const [signInClicke, setSignInClicke] = useState(false);
-  const { data: session } = useSession();
-  const [email, setEmail] = useState<null | string>(null);
+  const [email, setEmail] = useState<string>(""); // Initialize email as an empty string
+  const [emailError, setEmailError] = useState<boolean>(false); // State for email error message
   const { toast } = useToast();
+
   async function SignInWithEmail() {
+    if (email === "") {
+      setEmailError(true);
+      return;
+    }
+
     const signInResult = await signIn("email", {
       email: email,
       callbackUrl: `${window.location.origin}`,
@@ -74,31 +80,38 @@ const SignInModal = ({
           </p>
         </div>
 
-        {/* sign in magic link  */}
+        {/* sign in magic link */}
         <form action={SignInWithEmail}>
           <div className="flex flex-col space-y-2 bg-gray-50 px-4 pt-3 md:px-16">
             <Input
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border-2"
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError(false); // Reset the error state when the user types
+              }}
+              className="w-full rounded-lg border-2 h-10 px-3" // Adjust input field size
               placeholder="example@gmail.com"
               name="email"
               type="email"
+              value={email} // Ensure the input value is controlled
             />
-            <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-2 md:px-16">
+            {emailError && (
+              <p className="text-red-500 text-sm mt-1">Please enter your email First.</p>
+            )}
+            <div className="flex flex-col space-y-4 bg-gray-50 py-2 ">
               <button
-                onClick={() => {
-                  setSignInClicke(true);
+                onClick={(e) => {
+                  e.preventDefault();
                   SignInWithEmail();
                 }}
-                disabled={signInClicke}
+                disabled={signInClicke} // Disable if signInClicke is true
                 type="submit"
-                className="  flex h-10 w-full items-center justify-center space-x-2 rounded-md border border-gray-200 bg-white text-sm text-black shadow-sm transition-all duration-75 hover:bg-gray-50 focus:outline-none"
+                className="flex h-10 w-full items-center justify-center space-x-2 rounded-md border border-gray-200 bg-white text-sm text-black shadow-sm transition-all duration-75 hover:bg-gray-50 focus:outline-none"
               >
                 {signInClicke ? (
                   <LoadingDots color="#808080" />
                 ) : (
                   <>
-                    <Image src={logo} alt="image" className=" h-4 w-4"></Image>
+                    <Image src={logo} alt="image" className="h-4 w-4" />
                     <p> Sign In</p>
                   </>
                 )}
@@ -149,6 +162,6 @@ export function useSignInModal() {
 
   return useMemo(
     () => ({ setShowSignInModal, SignInModal: SignInModalCallback }),
-    [setShowSignInModal, SignInModalCallback],
+    [setShowSignInModal, SignInModalCallback]
   );
 }
