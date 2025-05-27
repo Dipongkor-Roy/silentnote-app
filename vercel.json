@@ -1,19 +1,16 @@
 {
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "/api/:path*"
-      },
-      {
-        "source": "/u/:path*",
-        "destination": "/u/:path*"
-      },
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ]
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/u/:path*",
+      "destination": "/u/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
-
-
-Login: wlords70@gmail.com Password: Hol1h7DOiKBfkoZKQSevEgia
