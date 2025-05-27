@@ -1,29 +1,24 @@
-import Image from 'next/image';
-import { FC } from 'react';
-import { BorderBeam } from '../border-beam';
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import { BorderBeam } from "../border-beam";
 
-const ImageFade: FC = () => {
+export function HeroVideoDialogDemo() {
   return (
-    <>
-       
-    <div className='mx-5  rounded-md  '>
- 
-      <div className="p-1 relative flex max-w-6xl justify-center overflow-hidden rounded-md">
-      <BorderBeam />
-        <Image
-          src="https://dashboardsdesign.com/img/dashboards/dashboard-05-custom.png"
-          alt="hero-section"
-          height={800} // Specify the height
-          width={1300} // Specify the width
-          className="h-full w-full rounded-lg object-cover md:w-[1300px]"
-          style={{
-            maskImage: `linear-gradient(to top, transparent, black 20%)`,
-          }}
-        />
-      </div>
+    <div className="relative">
+      <BorderBeam/>
+      <HeroVideoDialog
+        className="block dark:hidden p-1 "
+        animationStyle="from-center"
+        videoSrc="https://www.youtube.com/embed/KDwKsN2qsag?si=UZGXVqpFd66ySE2Y"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        thumbnailAlt="Hero Video"
+      />
+      <HeroVideoDialog
+        className="hidden dark:block"
+        animationStyle="from-center"
+        videoSrc="https://www.youtube.com/embed/KDwKsN2qsag?si=UZGXVqpFd66ySE2Y"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+        thumbnailAlt="Hero Video"
+      />
     </div>
-    </>
   );
-};
-
-export default ImageFade;
+}

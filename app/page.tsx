@@ -1,6 +1,6 @@
 "use client";
 
-import ImageFade from "@/components/custom/Dashboard/Dashboard-hero";
+import { HeroVideoDialogDemo } from "@/components/custom/Dashboard/Dashboard-hero";
 import StaticLogoCloud from "@/components/custom/LogoCloud/LogoCloud";
 import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { Twitter } from "@/components/shared/icons";
@@ -76,8 +76,8 @@ export default  function Home() {
       <div className="animate-fade-up my-10 w-full">
         <StaticLogoCloud />
       </div>
-      <div className="animate-fade-up py-5">
-        <ImageFade />
+      <div className="animate-fade-up p-5 ">
+     <HeroVideoDialogDemo/>
       </div>
       <div className="animate-fade-up flex items-center justify-center px-7 pt-14">
         <Features />

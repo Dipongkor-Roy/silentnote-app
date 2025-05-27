@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: [
       "lh3.googleusercontent.com",
+      "startup-template-sage.vercel.app",
       "dashboardsdesign.com",
       "api.dicebear.com",
       "vercel.com",
