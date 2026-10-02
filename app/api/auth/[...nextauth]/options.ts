@@ -40,6 +40,8 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      // Google verifies emails, so linking to an existing email-login user is safe
+      allowDangerousEmailAccountLinking: true,
       authorization: {
         params: {
           scope: "openid profile email",

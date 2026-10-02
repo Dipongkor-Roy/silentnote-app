@@ -33,18 +33,6 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    if (!userMessages || userMessages.length === 0) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "No messages found",
-        },
-        {
-          status: 404,
-        }
-      );
-    }
-
     return NextResponse.json(
       {
         success: true,

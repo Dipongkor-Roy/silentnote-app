@@ -59,8 +59,8 @@ const Page = () => {
 
   // Fetching existing messages from the database using Prisma
   const fetchMessages = useCallback(
-    async (refresh: boolean = false) => {
-      setIsLoading(true);
+    async (refresh: boolean = false, silent: boolean = false) => {
+      if (!silent) setIsLoading(true);
       setIsSwitchLoading(false);
       try {
         const response = await axios.get<ApiResponse>("/api/get-messages");
@@ -72,15 +72,18 @@ const Page = () => {
           });
         }
       } catch (error) {
-        const axiosError = error as AxiosError<ApiResponse>;
-        toast({
-          title: "Error",
-          description:
-            axiosError.response?.data.message ?? "Failed to fetch messages",
-          variant: "destructive",
-        });
+        // background polling should never pop an error toast
+        if (!silent) {
+          const axiosError = error as AxiosError<ApiResponse>;
+          toast({
+            title: "Error",
+            description:
+              axiosError.response?.data.message ?? "Failed to fetch messages",
+            variant: "destructive",
+          });
+        }
       } finally {
-        setIsLoading(false);
+        if (!silent) setIsLoading(false);
         setIsSwitchLoading(false);
       }
     },
@@ -94,6 +97,19 @@ const Page = () => {
     fetchMessages();
     fetchAcceptMessages();
   }, [session, setValue, toast, fetchAcceptMessages, fetchMessages]);
+
+  // Auto-refresh new messages every 10s while the tab is visible
+  useEffect(() => {
+    if (!session || !session.user) return;
+
+    const interval = setInterval(() => {
+      if (document.visibilityState === "visible") {
+        fetchMessages(false, true);
+      }
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [session, fetchMessages]);
 
   // Handle switch change
   const handleSwitchChange = async () => {
